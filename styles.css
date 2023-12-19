@@ -1,56 +1,116 @@
+/* Reset and base styles */
 * {
   box-sizing: border-box;
 }
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
   font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
 }
+
+/* Ensures that images are 25% smaller */
+img {
+  width: 75%;
+  height: auto;
+}
+
+/* Flex layout for the entire body to push footer to the bottom */
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  color: #333;
-  background-color: #f4f4f4;
 }
 
+/* Header styles */
 header {
   background-color: #333;
   color: white;
   padding: 1rem 0;
 }
-.container {
-  width: 80%;
-  margin: auto;
-  padding: 1rem;
-}
+
+/* Navigation styles */
 nav ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
   justify-content: center;
+  padding: 0;
+  margin: 0;
 }
+
 nav li {
   margin: 0 1rem;
 }
+
 nav a {
   color: white;
   text-decoration: none;
   font-weight: bold;
 }
+
 nav a:hover {
   color: #007bff;
 }
 
-
+/* Main content styles */
 main {
   flex: 1;
-  padding: 1rem 0; 
+  padding: 1rem;
 }
 
+/* Container for centering content */
+.container {
+  width: 80%;
+  margin: auto;
+  padding: 1rem;
+}
 
+/* Contact form specific styles */
+.contact-form {
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: .5rem;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: .5rem;
+  border: 1px solid #ccc;
+  border-radius: .25rem;
+}
+
+textarea {
+  height: 150px;
+}
+
+input[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: .75rem 1.5rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: .25rem;
+  transition: background-color .3s;
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  background-color: #0056b3;
+}
+
+/* Footer styles */
 footer {
   background-color: #333;
   color: white;
@@ -59,19 +119,28 @@ footer {
   margin-top: auto; 
 }
 
-
+/* Media queries for responsive adjustments */
 @media (max-width: 768px) {
   .gallery-item {
-    flex-basis: calc(50% - 20px);
+    flex-basis: calc(50% - 20px); /* Adjust for two columns on tablet */
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav li {
+    margin: 0.5rem 0;
   }
 }
 
 @media (max-width: 480px) {
   .gallery-item {
-    flex-basis: 100%;
+    flex-basis: 100%; /* Adjust for one column on mobile */
   }
 
   .container {
-    width: 95%;
+    width: 95%; /* Use more screen width on smaller devices */
   }
 }
