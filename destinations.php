@@ -13,10 +13,12 @@
       <h1 class="logo">World Explorer</h1>
       <nav class="main-nav">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="destinations.html" class="active">Destinations</a></li>
-        </ul>
+        <li><a href="index.php">Home</a></li>
+        <li><a href="gallery.php">Gallery</a></li>
+        <li><a href="destinations.php">Destinations</a></li>
+        <li><a href= "contact.php"> Contact Us</a></li>
+        <li> <a href= "uploadPage.php"> Upload Images</a></li>
+      </ul>
       </nav>
     </div>
   </header>
@@ -39,8 +41,29 @@
     </article>
   </main>
 </div>
-<footer class="site-footer">
-  <p>&copy; 2023 World Explorer Travel Journal</p>
+<footer>
+   <?php include('footer.php'); ?>
+  </div>
 </footer>
+<script>
+function updateDateTime() {
+  // Create a new Date object for Warsaw timezone (GMT+1 or GMT+2 for daylight saving time)
+  var now = new Date(new Date().getTime() + 1 * 3600 * 1000); // GMT+1 offset
+  // If daylight saving time is in effect, add one more hour
+  if (now.getTimezoneOffset() < 0) { // Adjust this condition if needed
+    now = new Date(now.getTime() + 1 * 3600 * 1000); // Adjust for daylight saving time (GMT+2)
+  }
+
+  // Format the date and time in a friendly way
+  var dateString = now.toUTCString().replace(/ GMT$/, '');
+
+  // Update the footer with the current year and time
+  document.getElementById('currentYear').textContent = now.getUTCFullYear();
+  document.getElementById('currentTime').textContent = dateString;
+}
+
+// Call the function to update the date and time on page load
+updateDateTime();
+</script>
 </body>
 </html>
